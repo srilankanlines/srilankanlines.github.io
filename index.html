@@ -1,92 +1,783 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>srilankanlines</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  
-  
-  <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="index.html">
-	<img src="Icons_Logos/BrandLogo_1.png" alt="Logo" width="40" height="34" class="d-inline-block align-text-top">
-	SrilankanLines
-	</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-pills">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="ITServices.html">IT Services</a>
-        </li>
-		<li class="nav-item">
-          <a class="nav-link" href="#">DevOps Projects</a>
-        </li>
-		<li class="nav-item">
-          <a class="nav-link" href="https://www.youtube.com/channel/UCubwJnbd_IOZ0PfXTqmivEQ">YouTube Channel</a>
-        </li>
-		<li class="nav-item">
-          <a class="nav-link" href="BookMarks.html">BookMarks</a>
-        </li>
-		<li class="nav-item">
-          <a class="nav-link" href="#">Blog Articles</a>
-        </li>
-		<li class="nav-item">
-          <a class="nav-link" href="AboutMe.html">AboutMe</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
-  
-  
-  </head>
-  
-  
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Engineer Portfolio</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .navbar {
+            background-color: var(--secondary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(44, 62, 80, 0.9);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 40px;
+            color: var(--secondary-color);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .skill-card {
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card img {
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .contact-section {
+            background-color: var(--light-color);
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .progress {
+            height: 8px;
+            border-radius: 4px;
+        }
+        
+        .progress-bar {
+            background-color: var(--primary-color);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            border-color: #2980b9;
+        }
+        
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .floating-btn.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .floating-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .certification-badge {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            border: 4px solid white;
+        }
+        
+        .cloud-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar">
+    <!-- Floating Back to Top Button -->
+    <a href="#" class="floating-btn" id="back-to-top"><i class="fas fa-arrow-up"></i></a>
 
-<img src="Main_Images/DevOps_1_1.png" width="100%" height="100%" class="img-fluid" alt="Responsive image">
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Cloud<span style="color: var(--primary-color);">Engineer</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#certifications">Certifications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-<img src="Main_Images/DevOps_4_1.png" width="100%" height="100%" class="img-fluid" alt="Responsive image">
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Hi, I'm <span style="color: var(--primary-color);">Alex Cloud</span></h1>
+                    <h2 class="mb-4">Cloud & DevOps Engineer</h2>
+                    <p class="lead mb-4">I design, build, and maintain scalable cloud infrastructure to power modern applications.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#contact" class="btn btn-primary btn-lg px-4">Hire Me</a>
+                        <a href="#projects" class="btn btn-outline-light btn-lg px-4">View Work</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <img src="https://via.placeholder.com/500x500" alt="Profile Image" class="img-fluid rounded-circle shadow" style="border: 5px solid rgba(255,255,255,0.2);">
+                </div>
+            </div>
+        </div>
+    </section>
 
-<img src="Main_Images/DevOps_5_1.png" width="100%" height="100%" class="img-fluid" alt="Responsive image">
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container py-5">
+            <h2 class="section-title">About Me</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3 class="mb-4">Who am I?</h3>
+                    <p class="lead">I'm a passionate Cloud Engineer with 5+ years of experience in designing and implementing cloud solutions.</p>
+                    <p>I specialize in building scalable, secure, and cost-effective cloud infrastructure on AWS, Azure, and GCP. My expertise includes infrastructure as code, CI/CD pipelines, containerization, and cloud security.</p>
+                    <p>I love solving complex problems and optimizing systems for performance and reliability. When I'm not architecting cloud solutions, you can find me contributing to open-source projects or sharing my knowledge through blog posts and talks.</p>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><strong>Name:</strong> Alex Cloud</li>
+                                <li class="mb-2"><strong>Email:</strong> alex@cloudexample.com</li>
+                                <li class="mb-2"><strong>Location:</strong> San Francisco, CA</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><strong>Experience:</strong> 5+ Years</li>
+                                <li class="mb-2"><strong>Availability:</strong> Full-time</li>
+                                <li class="mb-2"><strong>Freelance:</strong> Available</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-body p-4">
+                            <h3 class="mb-4">My Expertise</h3>
+                            <div class="mb-4">
+                                <h5 class="mb-2">Cloud Architecture</h5>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <h5 class="mb-2">DevOps Practices</h5>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <h5 class="mb-2">Infrastructure as Code</h5>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <h5 class="mb-2">Cloud Security</h5>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <h5 class="mb-2">Containerization</h5>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 92%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Skills Section -->
+    <section id="skills" class="py-5 bg-light">
+        <div class="container py-5">
+            <h2 class="section-title">My Skills</h2>
+            <div class="row g-4">
+                <!-- Cloud Platforms -->
+                <div class="col-md-4">
+                    <div class="skill-card card h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-cloud cloud-icon"></i>
+                            <h4 class="card-title">Cloud Platforms</h4>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2"><i class="fab fa-aws text-primary me-2"></i> Amazon Web Services</li>
+                                <li class="mb-2"><i class="fas fa-cloud text-primary me-2"></i> Microsoft Azure</li>
+                                <li class="mb-2"><i class="fab fa-google text-primary me-2"></i> Google Cloud Platform</li>
+                                <li class="mb-2"><i class="fas fa-server text-primary me-2"></i> IBM Cloud</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- DevOps Tools -->
+                <div class="col-md-4">
+                    <div class="skill-card card h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-code-branch cloud-icon"></i>
+                            <h4 class="card-title">DevOps Tools</h4>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2"><i class="fab fa-docker text-primary me-2"></i> Docker & Kubernetes</li>
+                                <li class="mb-2"><i class="fab fa-jenkins text-primary me-2"></i> Jenkins & GitHub Actions</li>
+                                <li class="mb-2"><i class="fas fa-terminal text-primary me-2"></i> Terraform & Ansible</li>
+                                <li class="mb-2"><i class="fas fa-project-diagram text-primary me-2"></i> CI/CD Pipelines</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Programming -->
+                <div class="col-md-4">
+                    <div class="skill-card card h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-code cloud-icon"></i>
+                            <h4 class="card-title">Programming</h4>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2"><i class="fab fa-python text-primary me-2"></i> Python</li>
+                                <li class="mb-2"><i class="fas fa-code text-primary me-2"></i> Bash/Shell</li>
+                                <li class="mb-2"><i class="fab fa-js text-primary me-2"></i> JavaScript/Node.js</li>
+                                <li class="mb-2"><i class="fab fa-java text-primary me-2"></i> Java</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Monitoring -->
+                <div class="col-md-4">
+                    <div class="skill-card card h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-chart-line cloud-icon"></i>
+                            <h4 class="card-title">Monitoring</h4>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2"><i class="fas fa-bolt text-primary me-2"></i> Prometheus & Grafana</li>
+                                <li class="mb-2"><i class="fas fa-heartbeat text-primary me-2"></i> ELK Stack</li>
+                                <li class="mb-2"><i class="fas fa-bell text-primary me-2"></i> CloudWatch & Azure Monitor</li>
+                                <li class="mb-2"><i class="fas fa-tachometer-alt text-primary me-2"></i> New Relic & Datadog</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Databases -->
+                <div class="col-md-4">
+                    <div class="skill-card card h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-database cloud-icon"></i>
+                            <h4 class="card-title">Databases</h4>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2"><i class="fas fa-database text-primary me-2"></i> SQL (MySQL, PostgreSQL)</li>
+                                <li class="mb-2"><i class="fas fa-database text-primary me-2"></i> NoSQL (MongoDB, DynamoDB)</li>
+                                <li class="mb-2"><i class="fas fa-memory text-primary me-2"></i> Redis & Memcached</li>
+                                <li class="mb-2"><i class="fas fa-warehouse text-primary me-2"></i> Data Warehousing</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Other Skills -->
+                <div class="col-md-4">
+                    <div class="skill-card card h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-cogs cloud-icon"></i>
+                            <h4 class="card-title">Other Skills</h4>
+                            <ul class="list-unstyled text-start">
+                                <li class="mb-2"><i class="fas fa-shield-alt text-primary me-2"></i> Cloud Security</li>
+                                <li class="mb-2"><i class="fas fa-network-wired text-primary me-2"></i> Networking</li>
+                                <li class="mb-2"><i class="fas fa-server text-primary me-2"></i> Linux Administration</li>
+                                <li class="mb-2"><i class="fas fa-lock text-primary me-2"></i> IAM & Security</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="container text-center">
-  <div class="row">
-    <div class="col">
-      1 of 2
-    </div>
-    <div class="col">
-      2 of 2
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      1 of 3
-    </div>
-    <div class="col">
-      2 of 3
-    </div>
-    <div class="col">
-      3 of 3
-    </div>
-  </div>
-</div>
-	
-	
-	
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
-  </body>
-</html>
+    <!-- Experience Section -->
+    <section id="experience" class="py-5">
+        <div class="container py-5">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="timeline">
+                        <!-- Experience 1 -->
+                        <div class="timeline-item">
+                            <div class="card shadow-sm border-0">
+                                <div class="card-body p-4">
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <h4 class="mb-0">Senior Cloud Engineer</h4>
+                                        <span class="badge bg-primary">2021 - Present</span>
+                                    </div>
+                                    <h5 class="text-primary">TechCloud Solutions Inc.</h5>
+                                    <p>Lead cloud architect responsible for designing and implementing scalable cloud solutions for enterprise clients. Managed migration of legacy systems to AWS and Azure, reducing operational costs by 40%.</p>
+                                    <ul>
+                                        <li>Designed and implemented CI/CD pipelines using Jenkins and GitHub Actions</li>
+                                        <li>Automated infrastructure provisioning with Terraform and Ansible</li>
+                                        <li>Optimized cloud costs by implementing auto-scaling and reserved instances</li>
+                                        <li>Implemented security best practices and compliance frameworks</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Experience 2 -->
+                        <div class="timeline-item">
+                            <div class="card shadow-sm border-0">
+                                <div class="card-body p-4">
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <h4 class="mb-0">Cloud DevOps Engineer</h4>
+                                        <span class="badge bg-primary">2018 - 2021</span>
+                                    </div>
+                                    <h5 class="text-primary">Digital Innovations LLC</h5>
+                                    <p>Implemented DevOps practices and cloud solutions for various clients. Built containerized microservices architecture and automated deployment processes.</p>
+                                    <ul>
+                                        <li>Containerized applications using Docker and orchestrated with Kubernetes</li>
+                                        <li>Implemented monitoring solutions with Prometheus and Grafana</li>
+                                        <li>Reduced deployment time from hours to minutes</li>
+                                        <li>Mentored junior team members on cloud best practices</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Experience 3 -->
+                        <div class="timeline-item">
+                            <div class="card shadow-sm border-0">
+                                <div class="card-body p-4">
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <h4 class="mb-0">Systems Administrator</h4>
+                                        <span class="badge bg-primary">2016 - 2018</span>
+                                    </div>
+                                    <h5 class="text-primary">Enterprise IT Services</h5>
+                                    <p>Managed on-premise infrastructure and began transition to cloud solutions. Gained foundational experience in Linux administration and networking.</p>
+                                    <ul>
+                                        <li>Managed VMware virtualization environment</li>
+                                        <li>Implemented backup and disaster recovery solutions</li>
+                                        <li>Migrated physical servers to virtual environment</li>
+                                        <li>Started cloud certification path (AWS, Azure)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5 bg-light">
+        <div class="container py-5">
+            <h2 class="section-title">Recent Projects</h2>
+            <div class="row g-4">
+                <!-- Project 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card card h-100">
+                        <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Project 1">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h4 class="card-title">Cloud Migration for E-commerce Platform</h4>
+                                <span class="badge bg-primary">AWS</span>
+                            </div>
+                            <p class="card-text">Migrated a high-traffic e-commerce platform from on-premise to AWS, improving scalability and reducing downtime during peak periods.</p>
+                            <ul class="mb-3">
+                                <li>Implemented auto-scaling EC2 instances</li>
+                                <li>Used RDS with read replicas for database</li>
+                                <li>Set up CloudFront CDN for global delivery</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline-primary">View Case Study</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card card h-100">
+                        <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Project 2">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h4 class="card-title">Kubernetes Cluster for Microservices</h4>
+                                <span class="badge bg-primary">GCP</span>
+                            </div>
+                            <p class="card-text">Designed and implemented a Kubernetes-based solution for a client's microservices architecture on Google Cloud Platform.</p>
+                            <ul class="mb-3">
+                                <li>Automated deployment with Helm charts</li>
+                                <li>Implemented Istio service mesh</li>
+                                <li>Set up monitoring with Stackdriver</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline-primary">View Case Study</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card card h-100">
+                        <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Project 3">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h4 class="card-title">Serverless Data Processing Pipeline</h4>
+                                <span class="badge bg-primary">Azure</span>
+                            </div>
+                            <p class="card-text">Built a serverless data processing pipeline on Azure Functions for real-time analytics of IoT device data.</p>
+                            <ul class="mb-3">
+                                <li>Processed 1M+ events daily</li>
+                                <li>Used Cosmos DB for data storage</li>
+                                <li>Implemented event-driven architecture</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline-primary">View Case Study</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card card h-100">
+                        <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Project 4">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h4 class="card-title">Multi-Cloud Disaster Recovery</h4>
+                                <span class="badge bg-primary">AWS/Azure</span>
+                            </div>
+                            <p class="card-text">Implemented a cross-cloud disaster recovery solution for a financial services client with strict compliance requirements.</p>
+                            <ul class="mb-3">
+                                <li>Automated failover between clouds</li>
+                                <li>Reduced RTO from 8 hours to 15 minutes</li>
+                                <li>Implemented encryption in transit and at rest</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline-primary">View Case Study</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card card h-100">
+                        <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Project 5">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h4 class="card-title">Infrastructure as Code Framework</h4>
+                                <span class="badge bg-primary">Terraform</span>
+                            </div>
+                            <p class="card-text">Developed a reusable Terraform framework for rapid provisioning of standardized cloud environments across multiple projects.</p>
+                            <ul class="mb-3">
+                                <li>Reduced provisioning time by 80%</li>
+                                <li>Enforced security and compliance standards</li>
+                                <li>Created modules for common patterns</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline-primary">View Case Study</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card card h-100">
+                        <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Project 6">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h4 class="card-title">Cost Optimization Dashboard</h4>
+                                <span class="badge bg-primary">AWS/GCP</span>
+                            </div>
+                            <p class="card-text">Built a custom dashboard for visualizing and optimizing cloud spending across multiple accounts and providers.</p>
+                            <ul class="mb-3">
+                                <li>Identified 35% cost savings opportunities</li>
+                                <li>Integrated with AWS Cost Explorer API</li>
+                                <li>Provided recommendations via ML analysis</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline-primary">View Case Study</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-5">
+        <div class="container py-5">
+            <h2 class="section-title">Certifications</h2>
+            <div class="row g-4">
+                <!-- Certification 1 -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="certification-badge">
+                                <i class="fab fa-aws fa-3x text-primary"></i>
+                            </div>
+                            <h4>AWS Solutions Architect - Professional</h4>
+                            <p class="text-muted">Amazon Web Services</p>
+                            <p>Validated expertise in designing distributed systems on AWS</p>
+                            <span class="badge bg-light text-dark">2022</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certification 2 -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="certification-badge">
+                                <i class="fas fa-certificate fa-3x text-primary"></i>
+                            </div>
+                            <h4>Certified Kubernetes Administrator</h4>
+                            <p class="text-muted">Cloud Native Computing Foundation</p>
+                            <p>Demonstrated ability to manage Kubernetes clusters in production</p>
+                            <span class="badge bg-light text-dark">2021</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certification 3 -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="certification-badge">
+                                <i class="fab fa-microsoft fa-3x text-primary"></i>
+                            </div>
+                            <h4>Azure Solutions Architect Expert</h4>
+                            <p class="text-muted">Microsoft</p>
+                            <p>Proven skills in designing solutions on Microsoft Azure</p>
+                            <span class="badge bg-light text-dark">2020</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certification 4 -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="certification-badge">
+                                <i class="fas fa-shield-alt fa-3x text-primary"></i>
+                            </div>
+                            <h4>Certified Cloud Security Professional</h4>
+                            <p class="text-muted">(ISC)²</p>
+                            <p>Demonstrated knowledge of cloud security architecture</p>
+                            <span class="badge bg-light text-dark">2019</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certification 5 -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="certification-badge">
+                                <i class="fab fa-google fa-3x text-primary"></i>
+                            </div>
+                            <h4>Google Cloud Professional Architect</h4>
+                            <p class="text-muted">Google Cloud</p>
+                            <p>Validated ability to design GCP solutions</p>
+                            <span class="badge bg-light text-dark">2018</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certification 6 -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="certification-badge">
+                                <i class="fas fa-network-wired fa-3x text-primary"></i>
+                            </div>
+                            <h4>Terraform Associate</h4>
+                            <p class="text-muted">HashiCorp</p>
+                            <p>Demonstrated infrastructure as code expertise</p>
+                            <span class="badge bg-light text-dark">2021</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 contact-section">
+        <div class="container py-5">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="row">
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <h3 class="mb-4">Contact Information</h3>
+                    <p class="mb-4">Feel free to reach out for consulting, freelance opportunities, or just to say hello!</p>
+                    
+                    <div class="d-flex align-items-start mb-4">
+                        <i class="fas fa-map-marker-alt text-primary me-3 mt-1"></i>
+                        <div>
+                            <h5 class="mb-1">Location</h5>
+                            <p class="mb-0">San Francisco, CA</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-start mb-4">
+                        <i class="fas fa-envelope text-primary me-3 mt-1"></i>
+                        <div>
+                            <h5 class="mb-1">Email</h5>
+                            <p class="mb-0">alex@cloudexample.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-start mb-4">
+                        <i class="fas fa-phone text-primary me-3 mt-1"></i>
+                        <div>
+                            <h5 class="mb-1">Phone</h5>
+                           
